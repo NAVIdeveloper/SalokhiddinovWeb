@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+            <div class="customized-body">
+                <div class="greeting-label">
+                    <p>{{developer.greeting}}</p>
+                </div>
+                <div class="about-developer">
+                    <div class="developer">
+                        <h2>{{developer.first_name}} {{developer.last_name}}</h2>
+                        <p>{{developer.who}}</p>
+                    </div>
+                    <div class="picture">
+                        <img src="{{developer.picture.url}}"
+                            alt="none">
+                    </div>
+                </div>
+                <div class="about-work">
+                    <h3>{{work.title}}</h3>
+                    <p>{{work.text}}</p>
+                </div>
+                <div class="btn-redirect">
+                    <a href="{% url 'works' %}">{{work.title}} Gallery<ion-icon name="chevron-forward-outline"></ion-icon></a>
+                </div>
+                <div class="about-bio">
+                    <h3>{{bio.title}}</h3>
+                    {% for i in bio.cells.all %}
+                    <div class="info">
+                        <h4>{{i.year}}</h4><p>{{i.text}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="about-web">
+                    <h3>On the Platforms</h3>
+                    {% for i in platforms %}
+                    <a href="{{i.url}}">
+                        <ion-icon name="{{i.icon}}"></ion-icon>{{i.username}}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@latest/brython.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>
+{% endblock content %}

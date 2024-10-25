@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{developer.first_name}} {{developer.last_name}}</title>
+    <link rel="stylesheet" href="{% static './assets/css/style.css' %}">
+    <script type="text/python" src="{% static './assets/brython/main.py' %}"></script>
+</head>
+
+<body onload="brython()">
+    <div class="container">
+        <div class="window">
+            <div class="nav">
+                <div class="logo-name">
+                    <a href="{% url 'index' %}">
+                        <h4>
+                            <ion-icon name="code-slash-outline"></ion-icon>{{developer.last_name}}
+                        </h4>
+                    </a>
+                </div>
+                <div id="menu-btns" class="menu-btns">
+                    <a href="{% url 'works' %}">Works</a>
+                    <a href="{% url 'projects' %}">Personal Projects</a>
+                    <a href="{% url 'uses' %}">Uses</a>
+                    <a href="{% url 'wallpapers' %}">Wallpapers</a>
+                    <a href="https://github.com/navideveloper/">
+                        <ion-icon name="logo-github"></ion-icon>Source
+                    </a>
+                </div>
+                <div class="left-btns">
+                    <button class="switcher" id="switcher">
+                        <ion-icon name="sunny-outline"></ion-icon>
+                    </button>
+                    <button class="mobile-menu" id="mobile-menu">
+                        <ion-icon name="menu"></ion-icon>
+                    </button>
+                </div>
+            </div>
+            {% block content %}
+
+            {% endblock content %}

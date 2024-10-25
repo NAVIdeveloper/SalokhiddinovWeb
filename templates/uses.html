@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+            <div class="customized-body">
+                <div class="uses">
+                    <h2>List of the tech i use</h2>
+                    <div class="list-uses">
+                        {% for i in uses %}
+                        <a href="{{i.url}}">
+                            <div class="i-use">
+                                <img src="{{i.image.url}}" alt="">
+                                <p class="title">{{i.title}}</p>
+                                <p class="desc">{{i.desc}}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@latest/brython.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>
+{% endblock content %}
